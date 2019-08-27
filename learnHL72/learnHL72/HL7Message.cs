@@ -9,11 +9,11 @@ namespace learnHL72
 {
     public class HL7Message : System.Collections.IEnumerable
     {
-        public List<Segment> Segments { get; set; }
+        public List<Segment> Segments = new List<Segment>();
 
         public HL7Message(string messageText)
         {
-            string[] ss = messageText.Split('\n');
+            string[] ss = messageText.Trim().Split('\r');
             foreach (string s in ss) {
                 Segment seg = new Segment(s);
                 Segments.Add(seg);

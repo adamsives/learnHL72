@@ -10,13 +10,23 @@ namespace learnHL72
     {
         public string Name { get; set; }
         public List<string> SubSubFields { get; set; }
+        public string SubSubFieldValue;
 
         public SubSubField(string subSubFieldText)
         {
-            string[] ss = subSubFieldText.Split('&');
-            foreach (string s in ss)
+            if (subSubFieldText.Contains("&"))
             {
-                //SubSubFields.Add("debug");
+                string[] ss = subSubFieldText.Split('&');
+                foreach (string s in ss)
+                {
+                    SubSubFields?.Add(s);
+                }
+            }
+            else if (subSubFieldText != null)
+            {
+                List<string> x = new List<string>();
+                x.Add(subSubFieldText);
+                SubSubFieldValue = subSubFieldText;
             }
         }
     }

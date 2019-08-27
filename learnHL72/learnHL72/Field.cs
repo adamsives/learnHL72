@@ -9,16 +9,26 @@ namespace learnHL72
     public class Field
     {
         public string Name { get; set; }
-        public List<SubField> SubFields { get; set; }
-
+        public List<SubField> SubFields = new List<SubField>();
+        public string fieldValue;
         public Field(string fieldText)
         {
-            string[] ss = fieldText.Split('|');
-            foreach (string s in ss)
+            /*if (fieldText.Contains("~"))
             {
-                SubField f = new SubField(s);
-                //SubFields.Add(f);
+                string[] ss = fieldText.Split('~');
+                foreach (string s in ss)
+                {
+                    SubField f = new SubField(s);
+                    SubFields?.Add(f);
+                }
             }
+            else {
+                SubField f = new SubField(fieldText);
+                SubFields?.Add(f);
+                fieldValue = fieldText;
+            }*/
+
+            fieldValue = fieldText;
         }
     }
 }

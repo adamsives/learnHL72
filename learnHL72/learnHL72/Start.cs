@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,10 +67,14 @@ namespace learnHL72
             //if txtCDM and txtHL7Codes contain valid files
             string cdmFilename = txtCDMCodeFile.Text;
             string HL7FileName = txtHL7MessageFile.Text;
-            MessageSample messageSample = new MessageSample(HL7FileName);
+            string f = File.ReadAllText(HL7FileName);
+            MessageSample messageSample = new MessageSample(f);
 
-            foreach (string ms in messageSample) {
-                Console.WriteLine("xxxx");
+            //MessageBox.Show(messageSample.HL7Messages[0].Segments[0].
+
+            foreach (HL7Message ms in messageSample) {
+                MessageBox.Show("wah");
+                MessageBox.Show(ms.Segments[0].ToString());
             }
 
             #region Call the validation processes here

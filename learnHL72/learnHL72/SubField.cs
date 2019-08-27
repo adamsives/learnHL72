@@ -9,15 +9,24 @@ namespace learnHL72
     public class SubField
     {
         public string Name { get; set; }
-        public List<SubSubField> SubSubFields { get; set; }
+        public List<SubSubField> SubSubFields = new List<SubSubField>();
+        public string subfieldValue;
 
         public SubField(string subFieldText)
         {
-            string[] ss = subFieldText.Split('~');
-            foreach (string s in ss)
+            if (subFieldText.Contains("^"))
             {
-                SubSubField f = new SubSubField(s);
-                //SubSubFields.Add(f);
+                string[] ss = subFieldText.Split('~');
+                foreach (string s in ss)
+                {
+                    SubSubField f = new SubSubField(s);
+                    SubSubFields?.Add(f);
+                }
+            }
+            else if (subFieldText != null) {
+                SubSubField f = new SubSubField(subFieldText);
+                SubSubFields?.Add(f);
+                subfieldValue = subFieldText;
             }
         }
     }

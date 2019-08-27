@@ -9,7 +9,9 @@ namespace learnHL72
     public class Segment
     {
         public string Name { get; set; }
-        public List<Field> Fields { get; set; }
+        public List<Field> Fields = new List<Field>();
+        //public List<Field> Fields = new List<Field>();
+        public string segment;
 
         public Segment(string segmentText)
         {
@@ -19,6 +21,8 @@ namespace learnHL72
                 Field f = new Field(s);
                 Fields.Add(f);
             }
+
+            segment = segmentText;
         }
     }
 }
