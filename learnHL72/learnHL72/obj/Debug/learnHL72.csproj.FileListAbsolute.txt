@@ -1,0 +1,10 @@
+C:\Users\60190319\source\repos\learnHL72\learnHL72\bin\Debug\learnHL72.exe.config
+C:\Users\60190319\source\repos\learnHL72\learnHL72\bin\Debug\learnHL72.exe
+C:\Users\60190319\source\repos\learnHL72\learnHL72\bin\Debug\learnHL72.pdb
+C:\Users\60190319\source\repos\learnHL72\learnHL72\obj\Debug\learnHL72.csprojAssemblyReference.cache
+C:\Users\60190319\source\repos\learnHL72\learnHL72\obj\Debug\learnHL72.Properties.Resources.resources
+C:\Users\60190319\source\repos\learnHL72\learnHL72\obj\Debug\learnHL72.csproj.GenerateResource.cache
+C:\Users\60190319\source\repos\learnHL72\learnHL72\obj\Debug\learnHL72.csproj.CoreCompileInputs.cache
+C:\Users\60190319\source\repos\learnHL72\learnHL72\obj\Debug\learnHL72.exe
+C:\Users\60190319\source\repos\learnHL72\learnHL72\obj\Debug\learnHL72.pdb
+C:\Users\60190319\source\repos\learnHL72\learnHL72\obj\Debug\learnHL72.Start.resources
