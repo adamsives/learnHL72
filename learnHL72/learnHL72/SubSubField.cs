@@ -9,8 +9,8 @@ namespace learnHL72
     public class SubSubField
     {
         public string Name { get; set; }
-        public List<string> SubSubFields { get; set; }
-        public string SubSubFieldValue;
+        public List<string> SubSubFields = new List<string>();
+        public string value;
 
         public SubSubField(string subSubFieldText)
         {
@@ -19,14 +19,12 @@ namespace learnHL72
                 string[] ss = subSubFieldText.Split('&');
                 foreach (string s in ss)
                 {
-                    SubSubFields?.Add(s);
+                    SubSubFields.Add(s);
                 }
             }
             else if (subSubFieldText != null)
             {
-                List<string> x = new List<string>();
-                x.Add(subSubFieldText);
-                SubSubFieldValue = subSubFieldText;
+                value = subSubFieldText;
             }
         }
     }

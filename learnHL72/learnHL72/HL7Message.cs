@@ -10,6 +10,13 @@ namespace learnHL72
     public class HL7Message : System.Collections.IEnumerable
     {
         public List<Segment> Segments = new List<Segment>();
+        public string messageId;
+        public string value;
+        public char fieldSeparator;
+        public char fieldRepeatSeparator;
+        public char escapeCharacter;
+        public char subfieldSeparator;
+        public char subSubFieldSeparator;
 
         public HL7Message(string messageText)
         {
@@ -18,11 +25,28 @@ namespace learnHL72
                 Segment seg = new Segment(s);
                 Segments.Add(seg);
             }
+
+            value = messageText.Trim();
+
+            foreach (string s in ss)
+            {
+                if (s.Substring(0, 3) == "MSH")
+                {
+                    fieldSeparator = s[3];// usually|
+                    subfieldSeparator = s[4];//usually = ^
+                    fieldRepeatSeparator = s[5];//usually = ~
+                    escapeCharacter = s[6]; //usually \
+                    subSubFieldSeparator = s[7]; //usually &
+
+                    string [] MSHSeg = s.Split(fieldSeparator);
+                    messageId = MSHSeg[9];
+                }
+            }
         }
 
         public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return ((IEnumerable)Segments).GetEnumerator();
         }
     }
 }

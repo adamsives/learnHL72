@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace learnHL72
 {
-    public class Segment
+    public class Segment : System.Collections.IEnumerable
     {
         public string Name { get; set; }
         public List<Field> Fields = new List<Field>();
-        //public List<Field> Fields = new List<Field>();
-        public string segment;
+        public string value;
 
         public Segment(string segmentText)
         {
@@ -22,7 +22,12 @@ namespace learnHL72
                 Fields.Add(f);
             }
 
-            segment = segmentText;
+            value = segmentText;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return ((IEnumerable)Fields).GetEnumerator();
         }
     }
 }

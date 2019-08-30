@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,29 +7,30 @@ using System.Threading.Tasks;
 
 namespace learnHL72
 {
-    public class Field
+    public class Field : System.Collections.IEnumerable
     {
         public string Name { get; set; }
         public List<SubField> SubFields = new List<SubField>();
-        public string fieldValue;
+        public string value;
         public Field(string fieldText)
         {
-            /*if (fieldText.Contains("~"))
+            if (fieldText.Contains("~"))
             {
                 string[] ss = fieldText.Split('~');
                 foreach (string s in ss)
                 {
                     SubField f = new SubField(s);
-                    SubFields?.Add(f);
+                    SubFields.Add(f);
                 }
             }
             else {
-                SubField f = new SubField(fieldText);
-                SubFields?.Add(f);
-                fieldValue = fieldText;
-            }*/
+                value = fieldText;
+            }
+        }
 
-            fieldValue = fieldText;
+        public IEnumerator GetEnumerator()
+        {
+            return ((IEnumerable)SubFields).GetEnumerator();
         }
     }
 }

@@ -11,14 +11,10 @@ namespace learnHL72
     public class MessageSample : System.Collections.IEnumerable
     {
         public List<HL7Message> HL7Messages = new List<HL7Message>();
+        int position = -1;
 
         public MessageSample(string messageSampleText)
         {
-            //cleanse of VT, replace CR with newline,
-            messageSampleText.Replace("\r", Environment.NewLine);
-
-
-
             string[] ss = messageSampleText.Split((char)28);
             foreach (string s in ss)
             {
@@ -29,7 +25,7 @@ namespace learnHL72
 
         public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return ((IEnumerable)HL7Messages).GetEnumerator();
         }
     }
 }

@@ -70,53 +70,19 @@ namespace learnHL72
             string f = File.ReadAllText(HL7FileName);
             MessageSample messageSample = new MessageSample(f);
 
-            //MessageBox.Show(messageSample.HL7Messages[0].Segments[0].
-
-            foreach (HL7Message ms in messageSample) {
-                MessageBox.Show("wah");
-                MessageBox.Show(ms.Segments[0].ToString());
-            }
+            MessageBox.Show(messageSample.HL7Messages[1].value);
+            MessageBox.Show(messageSample.HL7Messages[1].Segments[2].value);
+            MessageBox.Show(messageSample.HL7Messages[1].Segments[2].Fields[5].SubFields[0].SubSubFields[0].value);
+            MessageBox.Show(messageSample.HL7Messages[1].Segments[2].Fields[5].SubFields[0].SubSubFields[1].value);
+            MessageBox.Show(messageSample.HL7Messages[1].Segments[2].Fields[5].SubFields[1].value);
+            MessageBox.Show(messageSample.HL7Messages[1].Segments[2].Fields[4].value);//PID-4  correctly displays
+            MessageBox.Show(messageSample.HL7Messages[1].Segments[2].Fields[3].value);
+            MessageBox.Show(messageSample.HL7Messages[1].Segments[2].Fields[2].value);
 
             #region Call the validation processes here
-            foreach (string message in messageSample)
+            foreach (HL7Message message in messageSample)
             {
-                //HL7Message hl7msg = new HL7Message(message) { Segments = new List<Segment>};
-                Console.WriteLine("debug");
-                //---------------------------SO answer
-/*
-                var myMessage = new HL7Message(message)
-                {
-                    Segments = new List<Segment>()
-                {
-                   new Segment()
-                   {
-                      Name = "PID",
-                      Fields = new List<Field>()
-                         {
-                            new Field()
-                            {
-                               Name = "SomeField",
-                               Fields = new List<Field>()
-                                  {
-                                     new Field()
-                                     {
-                                        Name = "SomeSubField",
-                                        Fields = new List<Field>()
-                                           {
-                                              new Field()
-                                              {
-                                                 Name = "SomeSubSubField",
-                                              }
-                                           }
-                                     }
-                                  }
-                            }
-                         }
-                   }
-                }
-                };*/
-                //--------------------------
-
+                MessageBox.Show("debug");
 
                 try
                 {
