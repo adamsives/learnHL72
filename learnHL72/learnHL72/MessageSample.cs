@@ -11,7 +11,6 @@ namespace learnHL72
     public class MessageSample : System.Collections.IEnumerable
     {
         public List<HL7Message> HL7Messages = new List<HL7Message>();
-        int position = -1;
 
         public MessageSample(string messageSampleText)
         {

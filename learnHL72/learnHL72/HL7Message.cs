@@ -17,10 +17,14 @@ namespace learnHL72
         public char escapeCharacter;
         public char subfieldSeparator;
         public char subSubFieldSeparator;
+        public string segmentName;
+        private string segmentString;
+        private string[] ss;
 
         public HL7Message(string messageText)
         {
-            string[] ss = messageText.Trim().Split('\r');
+            ss = messageText.Trim().Split('\r');
+
             foreach (string s in ss) {
                 Segment seg = new Segment(s);
                 Segments.Add(seg);
@@ -30,23 +34,37 @@ namespace learnHL72
 
             foreach (string s in ss)
             {
-                if (s.Substring(0, 3) == "MSH")
+                if (!String.IsNullOrEmpty(s))
                 {
-                    fieldSeparator = s[3];// usually|
-                    subfieldSeparator = s[4];//usually = ^
-                    fieldRepeatSeparator = s[5];//usually = ~
-                    escapeCharacter = s[6]; //usually \
-                    subSubFieldSeparator = s[7]; //usually &
-
-                    string [] MSHSeg = s.Split(fieldSeparator);
-                    messageId = MSHSeg[9];
+                    string segName = s.Substring(0, 3);
+                    if (segName == "MSH")
+                    {
+                        fieldSeparator = s[3];// usually|
+                        subfieldSeparator = s[4];//usually = ^
+                        fieldRepeatSeparator = s[5];//usually = ~
+                        escapeCharacter = s[6]; //usually \
+                        subSubFieldSeparator = s[7]; //usually &
+                        string[] MSHSeg = s.Split(fieldSeparator);
+                        messageId = MSHSeg[9];
+                    }
                 }
             }
         }
-
-        public IEnumerator GetEnumerator()
+        //TODO: access segment by name
+        private Segment GetSegment(string segName)
         {
-            return ((IEnumerable)Segments).GetEnumerator();
+           foreach (string s in ss)
+            {
+                if (segName == s.Substring(0, 3))
+                {
+                    string segmentString = s;
+                }
+            }
+            Segment seg = new Segment(segmentString);
+
+            return seg;
         }
+
+        public IEnumerator GetEnumerator() => ((IEnumerable)Segments).GetEnumerator();
     }
 }
