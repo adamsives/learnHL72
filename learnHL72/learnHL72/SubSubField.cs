@@ -11,12 +11,13 @@ namespace learnHL72
         public string Name { get; set; }
         public List<string> SubSubFields = new List<string>();
         public string value;
+        public FieldSepandEncodingChars fsc;
 
-        public SubSubField(string subSubFieldText)
+        public SubSubField(string subSubFieldText, FieldSepandEncodingChars f)
         {
-            if (subSubFieldText.Contains("&"))
+            if (subSubFieldText.Contains(f.subSubFieldSeparator))
             {
-                string[] ss = subSubFieldText.Split('&');
+                string[] ss = subSubFieldText.Split(f.subSubFieldSeparator);
                 foreach (string s in ss)
                 {
                     SubSubFields.Add(s);

@@ -13,6 +13,7 @@ namespace learnHL72
 {
     public partial class Start : Form
     {
+        private int i = 0;//this will take you to the cdm code value (seg,field,subfield,value)
         public Start()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace learnHL72
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                txtCDMCodeFile.Text = openFileDialog1.FileName;//todo: redact text with elipsis
+                txtCDMCodeFile.Text = openFileDialog1.FileName;//todo: redact text display with elipsis
             }
         }
 
@@ -65,39 +66,14 @@ namespace learnHL72
             List<string> cdmCodes = allCDMCodes.SegmentsInCDM();//TODO: refactor as a member variable
 
             #region Call the validation processes here
-            foreach (HL7Message message in messageSample)
+            foreach (HL7Message message in messageSample) {
 
-                foreach (Segment s in message)
-                {
-                    string segName = s.value.Substring(0, 3);
-                    int i = 0;
-                    if (cdmCodes.Contains(segName))
+                Assertion a = new Assertion(message, allCDMCodes);
 
-                        try
-                        {
-                            //The message segment in question is under review
-                            string wah = s.Fields[i].value;//debug
-                            i++;//debug
-                            string rah = s.Fields[i].value;//debug
-                            i++;//debug
-                            string fee = s.Fields[i].value;//debug
-                            i++;//debug
-                            string boo = s.Fields[i].SubFields[0].value;//debug
-                            i++;//debug
-                            string bru = s.Fields[i].value;//debug
-                            i++;//debug
-                            string wan = s.Fields[i].value;//debug
-                            i++;//debug
-                            string gak = s.Fields[i].value;//debug
-                            i++;//debug
-                            string wak = s.Fields[i].value;//debug
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("there has been an exception in Form2.cs:" + ex.Message);
-                        }
-                    i++;
-                    } 
+            }
+                //in a OneOf() method compare Assert.HL7Message.component.OneOf();
+
+
             #endregion
         }
 

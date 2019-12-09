@@ -12,17 +12,19 @@ namespace learnHL72
         public string Name { get; set; }
         public List<Field> Fields = new List<Field>();
         public string value;
+        private FieldSepandEncodingChars fsc;
 
-        public Segment(string segmentText)
+        public Segment(string segmentText, FieldSepandEncodingChars fs)
         {
-            string[] ss = segmentText.Split('|');
+            string[] ss = segmentText.Split(fs.fieldSeparator);
             foreach (string s in ss)
             {
-                Field f = new Field(s);
+                Field f = new Field(s, fs);
                 Fields.Add(f);
             }
 
             value = segmentText;
+            fsc = fs;
         }
 
         public IEnumerator GetEnumerator()

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="HL7ValidationDB" 
+                  targetNamespace="http://tempuri.org/HL7ValidationDB.xsd"
+                  elementFormDefault="qualified"
+                  attributeFormDefault="qualified"
+                  xmlns="http://tempuri.org/HL7ValidationDB.xsd"
+                  xmlns:mstns="http://tempuri.org/HL7ValidationDB.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                  xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="HL7ValidationDB" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded"></xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

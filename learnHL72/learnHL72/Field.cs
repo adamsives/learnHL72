@@ -12,20 +12,24 @@ namespace learnHL72
         public string Name { get; set; }
         public List<SubField> SubFields = new List<SubField>();
         public string value;
-        public Field(string fieldText)
+        public FieldSepandEncodingChars fsc;
+
+        public Field(string fieldText, FieldSepandEncodingChars fc)
         {
-            if (fieldText.Contains("~"))
+            if (fieldText.Contains(fc.fieldRepeatSeparator))
             {
-                string[] ss = fieldText.Split('~');
+                string[] ss = fieldText.Split(fc.fieldRepeatSeparator);
                 foreach (string s in ss)
                 {
-                    SubField f = new SubField(s);
+                    SubField f = new SubField(s, fc);
                     SubFields.Add(f);
                 }
             }
             else {
                 value = fieldText;
             }
+
+            fsc = fc;
         }
 
         public IEnumerator GetEnumerator()

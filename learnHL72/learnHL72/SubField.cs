@@ -12,15 +12,16 @@ namespace learnHL72
         public string Name { get; set; }
         public List<SubSubField> SubSubFields = new List<SubSubField>();
         public string value;
+        public FieldSepandEncodingChars fsc;
 
-        public SubField(string subFieldText)
+        public SubField(string subFieldText, FieldSepandEncodingChars fs)
         {
             if (subFieldText.Contains("^"))
             {
-                string[] ss = subFieldText.Split('^');
+                string[] ss = subFieldText.Split(fs.subfieldSeparator);
                 foreach (string s in ss)
                 {
-                    SubSubField f = new SubSubField(s);
+                    SubSubField f = new SubSubField(s, fs);
                     SubSubFields.Add(f);
                 }
             }

@@ -11,7 +11,7 @@ namespace learnHL72
 {
     class AllCDMCodes : System.Collections.IEnumerable
     {
-        private List<CDMCode> CDMCodes = new List<CDMCode>();
+        public List<CDMCode> CDMCodes = new List<CDMCode>();
         private string[] allCDMCodes;
         private List<string> segments = new List<string>();
 

@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,8 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllCDMCodes.cs" />
+    <Compile Include="Assertion.cs" />
     <Compile Include="CDMCode.cs" />
     <Compile Include="Field.cs" />
+    <Compile Include="FieldSepandEncodingChars.cs" />
+    <Compile Include="HL7ValidationDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HL7ValidationDB.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +82,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="HL7ValidationDB.xsc">
+      <DependentUpon>HL7ValidationDB.xsd</DependentUpon>
+    </None>
+    <None Include="HL7ValidationDB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HL7ValidationDB.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="HL7ValidationDB.xss">
+      <DependentUpon>HL7ValidationDB.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
