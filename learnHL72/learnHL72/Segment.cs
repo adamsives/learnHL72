@@ -19,8 +19,12 @@ namespace learnHL72
             string[] ss = segmentText.Split(fs.fieldSeparator);
             foreach (string s in ss)
             {
-                Field f = new Field(s, fs);
-                Fields.Add(f);
+                if (s != "")
+                {
+                    Field f = new Field(s, fs);
+                    Fields.Add(f);
+                    string wah = fs.subfieldSeparator.ToString();//-----debug 
+                }
             }
 
             value = segmentText;
