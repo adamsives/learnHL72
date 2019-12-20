@@ -51,6 +51,7 @@
     <Compile Include="Assertion.cs" />
     <Compile Include="CDMCode.cs" />
     <Compile Include="Field.cs" />
+    <Compile Include="Escape.cs" />
     <Compile Include="FieldSepandEncodingChars.cs" />
     <Compile Include="HL7ValidationDB.Designer.cs">
       <AutoGen>True</AutoGen>

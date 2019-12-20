@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace learnHL72
         public char escapeCharacter;
         public char subfieldSeparator;
         public char subSubFieldSeparator;
+        public string allSpecialChars;
         private char[] s;
 
         public FieldSepandEncodingChars(string f)
@@ -23,6 +25,7 @@ namespace learnHL72
             this.escapeCharacter = s[3];//---\
             this.subfieldSeparator = s[1];//---^
             this.subSubFieldSeparator = s[4];//---&
+            this.allSpecialChars = f;
         }
     }
 }

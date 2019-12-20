@@ -20,7 +20,7 @@ namespace learnHL72
         public HL7Message(string messageText)
         {
             ss = messageText.Trim().Split('\r');
-
+            //--need to test for escape characters
             foreach (string s in ss) {
 
                 if (s.Length > 0)

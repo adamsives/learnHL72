@@ -16,19 +16,16 @@ namespace learnHL72
 
         public Segment(string segmentText, FieldSepandEncodingChars fs)
         {
-            string[] ss = segmentText.Split(fs.fieldSeparator);
+            //---------check for escaped charachters here
+            Escape e = new Escape(segmentText.Trim(), fs.fieldSeparator);
+            string[] ss = segmentText.Trim().Split(fs.fieldSeparator);
             foreach (string s in ss)
             {
-                if (s != "")
-                {
-                    Field f = new Field(s, fs);
-                    Fields.Add(f);
-                    string wah = fs.subfieldSeparator.ToString();//-----debug 
-                }
+                Field f = new Field(e.escapedString, fs);
+                Fields.Add(f);
             }
 
             value = segmentText;
-            fsc = fs;
         }
 
         public IEnumerator GetEnumerator()

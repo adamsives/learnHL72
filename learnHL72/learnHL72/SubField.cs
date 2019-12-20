@@ -16,7 +16,7 @@ namespace learnHL72
 
         public SubField(string subFieldText, FieldSepandEncodingChars fs)
         {
-            if (subFieldText.Contains("^"))
+            if (subFieldText.Contains(fs.subfieldSeparator))
             {
                 string[] ss = subFieldText.Split(fs.subfieldSeparator);
                 foreach (string s in ss)
